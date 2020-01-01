@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Math Trainer</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="generateQuestion()">
+    <h1 ><img src="favicon.svg">Math Trainer</h1>
+    <div id="description">
+        <p>This page is created to train your math skills (multiplication table, small and big squared numbers).</p>
+        <p>Press <key>Enter</key>, <key>Shift</key> or <key>Ctrl</key> to check your answer. If it's correct the next question appears.</p>
+    </div>
+    <div id="setup">
+        <table>
+          <tr>
+            <td>Multiplication Table</td>
+            <td><input id="input_multiplicationTable" type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
+          </tr>
+          <tr>
+            <td>Small Squared Numbers</td>
+            <td><input id="input_squaredNumbersSmall" type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
+          </tr>
+          <tr>
+            <td>Big Squared Numbers</td>
+            <td><input id="input_squaredNumbersBig"   type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
+          </tr>
+        </table>
+    </div>
+    <div id="main">
+        <input id="question" size="15" disabled>
+        <input id="answer"   size="5"  type="number" autofocus="autofocus" onkeyup="check()">
+    </div>
+    <div id="history">
+      <p id="history_insert"></p>
+    </div>
+</body>
+</html>
