@@ -1,5 +1,4 @@
 body {
-    font-size: 1.5em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
 }
@@ -10,11 +9,13 @@ h1 {
     padding: 0;
     margin: .8em .8em .3em;
 }
-h1 > img {
-  width: 1.5em;
+
+#logo {
+  width: 4em;
   vertical-align: middle;
-  padding: .3em;
+  padding: .5em;
 }
+
 key {
   font-family: monospace;
 	/* font-weight: 700; */
@@ -42,10 +43,10 @@ div {
 
 #main input {
   display: inline-block;
-  font-size: 2em;
+  font-size: 1.75em;
   border-radius: .3em;
   border: 0;
-  padding: .5em;
+  padding: .2em;
   /* margin: .5em auto; */
   text-align: right;
   background-color: rgb(240, 240, 240);
@@ -73,4 +74,8 @@ table {
 td {
   padding: .2em;
   text-align:right;
+}
+
+input[type="range"] {
+  vertical-align: middle;
 }

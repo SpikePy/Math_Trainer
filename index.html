@@ -9,7 +9,8 @@
     <script src="script.js"></script>
 </head>
 <body onload="generateQuestion()">
-    <h1 ><img src="favicon.svg">Math Trainer</h1>
+    <h1 >Math Trainer</h1>
+    <img id="logo" src="favicon.svg">
     <div id="description">
         <p>This page is created to train your math skills (multiplication table, small and big squared numbers).</p>
         <p>Press <key>Enter</key>, <key>Shift</key> or <key>Ctrl</key> to check your answer. If it's correct the next question appears.</p>
@@ -32,7 +33,7 @@
     </div>
     <div id="main">
         <input id="question" size="15" disabled>
-        <input id="answer"   size="5"  type="number" autofocus="autofocus" onkeyup="check()">
+        <input id="answer"   size="5"  autocomplete="off" type="number" autofocus="autofocus" onkeyup="check()">
     </div>
     <div id="history">
       <p id="history_insert"></p>
