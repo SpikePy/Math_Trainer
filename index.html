@@ -18,16 +18,22 @@
     <div id="setup">
         <table>
           <tr>
-            <td>Multiplication Table</td>
-            <td><input id="input_multiplicationTable" type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
+              <th colspan="3">Choose question type distribution</th>
           </tr>
           <tr>
-            <td>Small Squared Numbers</td>
-            <td><input id="input_squaredNumbersSmall" type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
+              <td>Multiplication Table</td>
+              <td><input id="input_multiplicationTable" type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
+              <td id="probability_multiplicationTable_td"></td>
+          </tr>
+          <tr>
+              <td>Small Squared Numbers</td>
+              <td><input id="input_squaredNumbersSmall" type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
+              <td id="propability_squaredNumbersSmall_td"></td>
           </tr>
           <tr>
             <td>Big Squared Numbers</td>
             <td><input id="input_squaredNumbersBig"   type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
+            <td id="propability_squaredNumbersBig_td"></td>
           </tr>
         </table>
     </div>

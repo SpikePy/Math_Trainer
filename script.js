@@ -34,6 +34,10 @@ function generateQuestion() {
     probability_squaredNumbersSmall = input_squaredNumbersSmall_int / input_sum
     probability_squaredNumbersBig   = input_squaredNumbersBig_int   / input_sum
 
+    probability_multiplicationTable_td.innerText = Math.round(probability_multiplicationTable * 100) +"%"
+    propability_squaredNumbersSmall_td.innerText = Math.round(probability_squaredNumbersSmall * 100) +"%"
+    propability_squaredNumbersBig_td.innerText   = Math.round(probability_squaredNumbersBig   * 100) +"%"
+
     // console.log(input_multiplicationTable.value)
     // console.log("probability_multiplicationTable: " +probability_multiplicationTable )
     // console.log("probability_squaredNumbersSmall: " +probability_squaredNumbersSmall )
