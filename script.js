@@ -58,7 +58,7 @@ function generateQuestion() {
             min = 0
             max = 9999
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.value  = number_1
+            question.value  = number_1 +" = "
             question_answer = number_1.toString().split('').map(Number).reduce((sum, el) => sum + el)
             break;
 
@@ -69,7 +69,7 @@ function generateQuestion() {
             max = 10
             number_1 = min + Math.round( Math.random() * (max-min) )
             number_2 = min + Math.round( Math.random() * (max-min) )
-            question.value  = "" +number_1 +" × " +number_2 +" = "
+            question.value  = number_1 +" × " +number_2 +" = "
             question_answer = number_1 * number_2
             break;
 
@@ -80,7 +80,7 @@ function generateQuestion() {
             min = 0
             max = 10
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.value = "" +number_1 +"² = "
+            question.value = number_1 +"² = "
             question_answer = number_1 ** 2
             break;
 
@@ -92,38 +92,13 @@ function generateQuestion() {
             min = 10
             max = 20
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.value = "" +number_1 +"² = "
+            question.value = number_1 +"² = "
             question_answer = number_1 ** 2
             break;
 
         default:
-            alert("Error");
+            alert("Something went wrong: random-question-type was outside of question-range");
     }
-    // if (questionType_random < probability_multiplicationTable) {
-    //     // console.log("multiplicationTable: " +probability_multiplicationTable)
-    //     min = 0
-    //     max = 10
-    //     number_1 = min + Math.round( Math.random() * (max-min) )
-    //     number_2 = min + Math.round( Math.random() * (max-min) )
-    //     question.value  = "" +number_1 +" × " +number_2 +" = "
-    //     question_answer = number_1 * number_2
-    // }
-    // else if (questionType_random >= 1 - probability_squaredNumbersBig) {
-    //     // console.log("squaredNumbersBig: " +probability_squaredNumbersBig)
-    //     min = 10
-    //     max = 20
-    //     number_1 = min + Math.round( Math.random() * (max-min) )
-    //     question.value = "" +number_1 +"² = "
-    //     question_answer = number_1 ** 2
-    // }
-    // else {
-    //     // console.log("squaredNumbersSmall: " +probability_squaredNumbersSmall)
-    //     min = 0
-    //     max = 10
-    //     number_1 = min + Math.round( Math.random() * (max-min) )
-    //     question.value = "" +number_1 +"² = "
-    //     question_answer = number_1 ** 2
-    // }
 }
 
 function check() {
