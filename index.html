@@ -12,7 +12,7 @@
     <h1>Math Trainer</h1>
     <img id="logo" src="favicon.svg">
     <div id="description">
-        <p>This page is created to train your math skills (digit sum, multiplication table, small and big squared numbers).</p>
+        <p>This page is created to train your math skills (digit sum, multiplication table, small and big squared numbers/roots).</p>
         <h2>How to use this page</h2>
         <ol>
             <li>Use the sliders below to change the problem type distribution</li>
@@ -40,19 +40,19 @@
               <td id="probability_multiplicationTable_td"></td>
           </tr>
           <tr>
-              <td>Small Squared Numbers</td>
+              <td>Small Numbers Square/Root</td>
               <td><input id="input_squaredNumbersSmall" type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
               <td id="propability_squaredNumbersSmall_td"></td>
           </tr>
           <tr>
-            <td>Big Squared Numbers</td>
+            <td>Big Numbers Square/Root</td>
             <td><input id="input_squaredNumbersBig"   type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
             <td id="propability_squaredNumbersBig_td"></td>
           </tr>
         </table>
     </div>
     <div id="main">
-        <input id="question" size="15" disabled>
+        <div id="question" size="15"> </div>
         <input id="answer"   size="5"  autocomplete="off" type="number" autofocus="autofocus" onkeyup="check()">
     </div>
     <div id="history">

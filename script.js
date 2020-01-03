@@ -1,18 +1,6 @@
 // GLOBAL VARIABLES
-questionType_random = 0
-
-min                = 0
-max                = 0
-number_1           = 0
-number_2           = 0
 question_answer    = 0
 answer_wrong_count = 0
-
-probability_digitSum            = 0
-probability_multiplicationTable = 0
-probability_squaredNumbersSmall = 0
-probability_squaredNumbersBig   = 0
-
 
 function generateQuestion() {
     // Parse slider values from HTML part (strings) to int
@@ -58,7 +46,7 @@ function generateQuestion() {
             min = 0
             max = 9999
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.value  = number_1 +" = "
+            question.innerHTML  = `${number_1} = `
             question_answer = number_1.toString().split('').map(Number).reduce((sum, el) => sum + el)
             break;
 
@@ -69,7 +57,7 @@ function generateQuestion() {
             max = 10
             number_1 = min + Math.round( Math.random() * (max-min) )
             number_2 = min + Math.round( Math.random() * (max-min) )
-            question.value  = number_1 +" × " +number_2 +" = "
+            question.innerHTML  = `${number_1} × ${number_2} = `
             question_answer = number_1 * number_2
             break;
 
@@ -77,11 +65,19 @@ function generateQuestion() {
         case questionType_random < probability_digitSum
                                  + probability_multiplicationTable
                                  + probability_squaredNumbersSmall:
+
             min = 0
             max = 10
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.value = number_1 +"² = "
-            question_answer = number_1 ** 2
+
+            if (Math.random() < 0.5) {
+              question.innerHTML = `${number_1}<sup>2</sup> = `
+              question_answer = number_1 ** 2
+            }
+            else {
+              question.innerHTML = `${number_1 ** 2}<sup>0.5</sup> =`
+              question_answer = number_1
+            }
             break;
 
         // If random number implies _big squared numbers_
@@ -92,8 +88,16 @@ function generateQuestion() {
             min = 10
             max = 20
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.value = number_1 +"² = "
-            question_answer = number_1 ** 2
+            question.innerHTML = `${number_1}<sup>2</sup> = `
+
+            if (Math.random() < 0.5) {
+              question.innerHTML = `${number_1}<sup>2</sup> = `
+              question_answer = number_1 ** 2
+            }
+            else {
+              question.innerHTML = `${number_1 ** 2}<sup>0.5</sup> =`
+              question_answer = number_1
+            }
             break;
 
         default:
