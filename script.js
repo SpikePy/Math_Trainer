@@ -38,10 +38,10 @@ function generateQuestion() {
     probability_squaredNumbersSmall = input_squaredNumbersSmall_int / input_sum
     probability_squaredNumbersBig   = input_squaredNumbersBig_int   / input_sum
 
-    propability_digitSum_td.innerHTML            = Math.round(probability_digitSum            * 100) +"&thinsp;%"
-    probability_multiplicationTable_td.innerHTML = Math.round(probability_multiplicationTable * 100) +"&thinsp;%"
-    propability_squaredNumbersSmall_td.innerHTML = Math.round(probability_squaredNumbersSmall * 100) +"&thinsp;%"
-    propability_squaredNumbersBig_td.innerHTML   = Math.round(probability_squaredNumbersBig   * 100) +"&thinsp;%"
+    propability_digitSum_td.innerHTML            = Math.round(probability_digitSum            * 100) +"&nbsp;%"
+    probability_multiplicationTable_td.innerHTML = Math.round(probability_multiplicationTable * 100) +"&nbsp;%"
+    propability_squaredNumbersSmall_td.innerHTML = Math.round(probability_squaredNumbersSmall * 100) +"&nbsp;%"
+    propability_squaredNumbersBig_td.innerHTML   = Math.round(probability_squaredNumbersBig   * 100) +"&nbsp;%"
 
     // console.log(input_multiplicationTable.value)
     // console.log("probability_multiplicationTable: " +probability_multiplicationTable )
