@@ -62,7 +62,7 @@ div {
 }
 
 #setup input[type="range"] {
-    width: 10em;
+    width: 9em;
 }
 
 #question {
@@ -71,7 +71,7 @@ div {
   border-radius: .3em;
   padding: .2em;
   text-align: right;
-  width: 6em;
+  width: 6.2em;
 }
 
 #main input {
@@ -108,7 +108,7 @@ table {
 td {
     padding: .2em;
     text-align:right;
-    min-width: 2.5em;
+    min-width: 2.6em;
 }
 
 input[type="range"] {
