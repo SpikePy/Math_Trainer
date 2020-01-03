@@ -46,7 +46,7 @@ function generateQuestion() {
             min = 0
             max = 9999
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.innerHTML  = `${number_1} = `
+            question.innerHTML  = `<math><msub><mi>ds</mi><mn>10</mn></msub><mo>(</mo><mn>${number_1}<mo>)</mo></mn><mo>=</mo></math>`
             question_answer = number_1.toString().split('').map(Number).reduce((sum, el) => sum + el)
             break;
 
@@ -57,7 +57,7 @@ function generateQuestion() {
             max = 10
             number_1 = min + Math.round( Math.random() * (max-min) )
             number_2 = min + Math.round( Math.random() * (max-min) )
-            question.innerHTML  = `${number_1} × ${number_2} = `
+            question.innerHTML  = `<math><mn>${number_1}</mn><mo>*</mo><mn>${number_2}</mn><mo>=</mo></math>`
             question_answer = number_1 * number_2
             break;
 
@@ -71,11 +71,11 @@ function generateQuestion() {
             number_1 = min + Math.round( Math.random() * (max-min) )
 
             if (Math.random() < 0.5) {
-              question.innerHTML = `${number_1}<sup>2</sup> = `
+              question.innerHTML = `<math><msup><mn>${number_1}</mn><mn>2</mn></msup><mo>=</mo></math>`
               question_answer = number_1 ** 2
             }
             else {
-              question.innerHTML = `${number_1 ** 2}<sup>0.5</sup> =`
+              question.innerHTML = `<math><msqrt><mn>${number_1 ** 2}</mn></msqrt><mo>=</mo></math>`
               question_answer = number_1
             }
             break;
@@ -88,14 +88,13 @@ function generateQuestion() {
             min = 10
             max = 20
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.innerHTML = `${number_1}<sup>2</sup> = `
 
             if (Math.random() < 0.5) {
-              question.innerHTML = `${number_1}<sup>2</sup> = `
+              question.innerHTML = `<math><msup><mn>${number_1}</mn><mn>2</mn></msup><mo>=</mo></math>`
               question_answer = number_1 ** 2
             }
             else {
-              question.innerHTML = `${number_1 ** 2}<sup>0.5</sup> =`
+              question.innerHTML = `<math><msqrt><mn>${number_1 ** 2}</mn></msqrt><mo>=</mo></math>`
               question_answer = number_1
             }
             break;
