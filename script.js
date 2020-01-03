@@ -46,7 +46,7 @@ function generateQuestion() {
             min = 0
             max = 9999
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.innerHTML  = `<math><msub><mi>ds</mi><mn>10</mn></msub><mo>(</mo><mn>${number_1}<mo>)</mo></mn><mo>=</mo></math>`
+            question.innerHTML  = `<math><msub><mi>s</mi><mi>d</mi></msub><mo>(</mo><mn>${number_1}<mo>)</mo></mn><mo>=</mo></math>`
             question_answer = number_1.toString().split('').map(Number).reduce((sum, el) => sum + el)
             break;
 

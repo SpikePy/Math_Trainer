@@ -71,7 +71,7 @@ div {
   border-radius: .3em;
   padding: .2em;
   text-align: right;
-  width: 6.2em;
+  width: 6.3em;
 }
 
 #main input {
@@ -86,11 +86,6 @@ div {
   -moz-appearance: textfield;
   transition: background-color .5s ease;
   width: 2em;
-}
-#main input:disabled {
-  width: 5em;
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
 }
 
 #result {
