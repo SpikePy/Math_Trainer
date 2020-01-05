@@ -122,7 +122,7 @@ function check() {
             history_newEntry("true")
             generateQuestion()
 
-            answer.title = `Streak: ${++answer_true_count}`
+            p_streak.innerText = `Current Streak:  ${++answer_true_count}`
             answer_false_count = 0
         }
         else {
@@ -133,7 +133,7 @@ function check() {
             console.log(`   Your Answer = ${answer.value} \t🗙`)
             history_newEntry("false")
 
-            answer.title = `Streak: ${answer_true_count = 0}`
+            p_streak.innerText = `Current Streak:  ${answer_true_count = 0}`
             answer_false_count++
         }
         answer.value = ""
@@ -149,25 +149,20 @@ function history_newEntry(check_result_bool) {
 }
 
 function history_show() {
-    answer.classList = ""
-
-    // img_logo.className          = "hidden"
-    div_description.className   = "hidden"
-    btn_history_show.className  = "hidden"
-    btn_history_hide.className  = ""
-    div_history_items.className = ""
-    div_setup.className         = "hidden"
-    div_main.className          = "hidden"
+    div_description.classList.add("hidden")
+    div_setup.classList.add("hidden")
+    div_main.classList.add("hidden")
+    btn_history_show.classList.add("hidden")
+    btn_history_hide.classList.remove("hidden")
+    div_history.classList.remove("hidden")
 }
 
 function history_hide() {
     answer.classList = ""
-
-    // img_logo.className          = ""
-    div_description.className   = ""
-    btn_history_show.className  = ""
-    btn_history_hide.className  = "hidden"
-    div_history_items.className = "hidden"
-    div_setup.className         = ""
-    div_main.className          = ""
+    div_description.classList.remove("hidden")
+    div_setup.classList.remove("hidden")
+    div_main.classList.remove("hidden")
+    btn_history_show.classList.remove("hidden")
+    btn_history_hide.classList.add("hidden")
+    div_history.classList.add("hidden")
 }

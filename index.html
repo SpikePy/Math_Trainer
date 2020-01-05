@@ -9,26 +9,25 @@
     <script src="script.js"></script>
 </head>
 <body ondragstart="return false" ondrop="return false" onload="generateQuestion()">
-    <h1>Math Trainer</h1>
-    <img id="img_logo" src="favicon.svg">
-    <div id="div_description">
-        <p>This page is created to train your math skills (digit sum, multiplication table, small and big squared numbers/roots).</p>
-        <h2>How to use this page</h2>
-        <ol>
-            <li>Use the sliders below to change the problem type distribution</li>
-            <li>Type your answer in the input after the question</li>
-            <li>Press <key>Enter</key>, <key>Shift</key> or <key>Ctrl</key> to check your answer</li>
-            <ol type="a">
-                <li>If <true>correct</true> the next question appears</li>
-                <li>If <false>wrong</false> hover the question to reveal the answer</li>
+    <h1><img id="img_logo" src="favicon.svg">Math Trainer</h1>
+    <p>This page is created to train your math skills (digit sum, multiplication table, small and big squared numbers/roots).</p>
+    <div class="base-structure" id="div_description">
+        <h2>Description</h2>
+        <div class="center">
+            <ol>
+                <li>Use the sliders below to change the problem type distribution</li>
+                <li>Type your answer in the input after the question</li>
+                <li>Press <keyboard-key>Enter</keyboard-key>, <keyboard-key>Shift</keyboard-key> or <keyboard-key>Ctrl</keyboard-key> to check your answer</li>
+                <ol type="a">
+                    <li>If <true>correct</true> the next question appears</li>
+                    <li>If <false>wrong</false> hover the question to reveal the answer</li>
+                </ol>
             </ol>
-        </ol>
+      </div>
     </div>
-    <div id="div_setup">
+    <div class="base-structure" id="div_setup">
+        <h2>Choose question type distribution</h2>
         <table>
-          <tr>
-              <th colspan="3">Choose question type distribution</th>
-          </tr>
           <tr>
             <td>Digit Sum</td>
             <td><input id="input_digitSum"   type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
@@ -50,19 +49,25 @@
             <td id="propability_squaredNumbersBig_td" class="propability"></td>
           </tr>
         </table>
+        </div>
     </div>
-    <div id="div_main">
+    <div class="base-structure" id="div_main">
+      <h2>Exercise</h2>
       <table>
         <tr>
           <td id="td_question"></td>
           <td><input id="answer" size="5"  autocomplete="off" type="number" autofocus="autofocus" onkeyup="check()"></td>
         </tr>
       </table>
+      <p id="p_streak"></p>
     </div>
-    <div id="history">
-        <button id="btn_history_show"                 onclick="history_show()">Show History</button>
-        <button id="btn_history_hide"  class="hidden" onclick="history_hide()">Hide History</button>
-        <ol    id="div_history_items" class="hidden" reversed></ol>
+    <button id="btn_history_show"                 onclick="history_show()">Show History</button>
+    <button id="btn_history_hide"  class="hidden" onclick="history_hide()">Hide History</button>
+    <div class="base-structure hidden" id="div_history">
+        <h2>History</h2>
+        <div class="center">
+          <ol id="div_history_items" reversed></ol>
+        </div>
     </div>
 </body>
 </html>

@@ -11,18 +11,21 @@ body {
 
 h1 {
     font-size: 3.5em;
-    text-align: center;
-    padding: 0;
     margin: 0;
 }
 
-#img_logo {
-  width: 4em;
-  vertical-align: middle;
-  padding: .5em;
+h2 {
+    font-size: 2em;
+    margin: .25em auto .5em;
 }
 
-key {
+#img_logo {
+  width: 1em;
+  vertical-align: middle;
+  padding: .25em;
+}
+
+keyboard-key {
   font-family: monospace;
 	/* font-weight: 700; */
   padding: .1em .3em;
@@ -30,14 +33,25 @@ key {
   border-radius: .3em;
 }
 
-#div_description {
-  margin:  .8em auto 3em;
-  width: 28em;
-  max-width: 95vw;
+.base-structure {
+    margin:  2.5em auto 2em;
+}
+
+#div_setup input[type="range"] {
+    width: 9em;
+    vertical-align: middle;
+}
+
+.center {
+    display:inline-block;
+    text-align: center;
+    margin:  0;
+    padding: 0;
 }
 
 ol {
     text-align: left;
+    margin:  0;
 }
 
 true {
@@ -48,22 +62,6 @@ true {
 false {
   color: red;
   /* font-weight: 700; */
-}
-
-#div_setup {
-  margin:  .8em auto 3em;
-  width: 28em;
-  max-width: 95vw;
-}
-
-div {
-  margin: 0 auto 0;
-  text-align: center;
-}
-
-#div_setup input[type="range"] {
-    width: 9em;
-    vertical-align: middle;
 }
 
 #td_question {
@@ -117,7 +115,8 @@ input {
 }
 
 button {
-  margin: 3em;
+  display: block;
+  margin: 1em auto;
   padding: 1em;
 }
 
