@@ -1,6 +1,7 @@
 // GLOBAL VARIABLES
 question_answer    = 0
-answer_wrong_count = 0
+answer_false_count = 0
+answer_true_count  = 0
 
 function generateQuestion() {
     // Parse slider values from HTML part (strings) to int
@@ -46,7 +47,7 @@ function generateQuestion() {
             min = 0
             max = 9999
             number_1 = min + Math.round( Math.random() * (max-min) )
-            question.innerHTML  = `<math><msub><mi>s</mi><mi>d</mi></msub><mo>(</mo><mn>${number_1}<mo>)</mo></mn><mo>=</mo></math>`
+            td_question.innerHTML  = `<math><msub><mi>s</mi><mi>d</mi></msub><mo>(</mo><mn>${number_1}<mo>)</mo></mn><mo>=</mo></math>`
             question_answer = number_1.toString().split('').map(Number).reduce((sum, el) => sum + el)
             break;
 
@@ -57,7 +58,7 @@ function generateQuestion() {
             max = 10
             number_1 = min + Math.round( Math.random() * (max-min) )
             number_2 = min + Math.round( Math.random() * (max-min) )
-            question.innerHTML  = `<math><mn>${number_1}</mn><mo>*</mo><mn>${number_2}</mn><mo>=</mo></math>`
+            td_question.innerHTML  = `<math><mn>${number_1}</mn><mo>*</mo><mn>${number_2}</mn><mo>=</mo></math>`
             question_answer = number_1 * number_2
             break;
 
@@ -71,11 +72,11 @@ function generateQuestion() {
             number_1 = min + Math.round( Math.random() * (max-min) )
 
             if (Math.random() < 0.5) {
-              question.innerHTML = `<math><msup><mn>${number_1}</mn><mn>2</mn></msup><mo>=</mo></math>`
+              td_question.innerHTML = `<math><msup><mn>${number_1}</mn><mn>2</mn></msup><mo>=</mo></math>`
               question_answer = number_1 ** 2
             }
             else {
-              question.innerHTML = `<math><msqrt><mn>${number_1 ** 2}</mn></msqrt><mo>=</mo></math>`
+              td_question.innerHTML = `<math><msqrt><mn>${number_1 ** 2}</mn></msqrt><mo>=</mo></math>`
               question_answer = number_1
             }
             break;
@@ -90,11 +91,11 @@ function generateQuestion() {
             number_1 = min + Math.round( Math.random() * (max-min) )
 
             if (Math.random() < 0.5) {
-              question.innerHTML = `<math><msup><mn>${number_1}</mn><mn>2</mn></msup><mo>=</mo></math>`
+              td_question.innerHTML = `<math><msup><mn>${number_1}</mn><mn>2</mn></msup><mo>=</mo></math>`
               question_answer = number_1 ** 2
             }
             else {
-              question.innerHTML = `<math><msqrt><mn>${number_1 ** 2}</mn></msqrt><mo>=</mo></math>`
+              td_question.innerHTML = `<math><msqrt><mn>${number_1 ** 2}</mn></msqrt><mo>=</mo></math>`
               question_answer = number_1
             }
             break;
@@ -106,38 +107,67 @@ function generateQuestion() {
 
 function check() {
     if( answer.value != '' && (event.key === 'Enter' || event.key === 'Control' || event.key === 'Shift') ) {
-        // Log the correct answer and set it as HTML title of the question
-        if (answer_wrong_count == 0) {
+        // Log the correct answer to the console
+        if (answer_false_count == 0) {
           console.log("Correct Answer = " +question_answer)
-          question.title = question_answer
         }
 
-        // history(true)
         if (answer.value == question_answer) {
-          answer.style.boxShadow="0 0"
-          answer_wrong_count = 0
-          console.log('   Your Answer = ' +answer.value +"\t✔")
-          console.log()
-          generateQuestion()
+            // Alternate between classes (and therefore animations) to allow repeated effects of answer-true/-false
+            if (answer.classList == "answer-true-1") {answer.classList = "answer-true-2"}
+            else                                     {answer.classList = "answer-true-1"}
+            td_question.title = ""
+            console.log(`   Your Answer = ${answer.value} \t✔`)
+            console.log()
+            history_newEntry("true")
+            generateQuestion()
+
+            answer.title = `Streak: ${++answer_true_count}`
+            answer_false_count = 0
         }
         else {
-          answer.style.boxShadow="0 0 5px #F00"
-          answer_wrong_count++
-          console.log('   Your Answer = ' +answer.value +"\t🗙")
-          // history(false)
+            // Alternate between classes (and therefore animations) to allow repeated effects of answer-true/-false
+            if (answer.classList == "answer-false-1") {answer.classList = "answer-false-2"}
+            else                                      {answer.classList = "answer-false-1"}
+            td_question.title = question_answer
+            console.log(`   Your Answer = ${answer.value} \t🗙`)
+            history_newEntry("false")
+
+            answer.title = `Streak: ${answer_true_count = 0}`
+            answer_false_count++
         }
         answer.value = ""
     }
 }
 
-function history(bool) {
-  var history_node = document.createElement("p");
-  if (bool) {
-    var history_text = document.createTextNode("" +number_1 +" × " +number_2 +" = " +answer.value +" ✔")
-  }
-  else {
-    var history_text = document.createTextNode("" +number_1 +" × " +number_2 +" = " +answer.value +" 🗙")
-  }
-  history_node.appendChild(history_text)
-  document.body.insertBefore(history_node, history_insert)
+function history_newEntry(check_result_bool) {
+    history_node = document.createElement("li")
+    history_node.innerHTML = `<${check_result_bool}>${td_question.innerHTML.substring(0,td_question.innerHTML.length - 7)}<mn>${answer.value}</mn></math>\t</${check_result_bool}>`
+
+    var position = document.getElementById("div_history_items")
+    position.insertBefore(history_node, position.childNodes[0])
+}
+
+function history_show() {
+    answer.classList = ""
+
+    // img_logo.className          = "hidden"
+    div_description.className   = "hidden"
+    btn_history_show.className  = "hidden"
+    btn_history_hide.className  = ""
+    div_history_items.className = ""
+    div_setup.className         = "hidden"
+    div_main.className          = "hidden"
+}
+
+function history_hide() {
+    answer.classList = ""
+
+    // img_logo.className          = ""
+    div_description.className   = ""
+    btn_history_show.className  = ""
+    btn_history_hide.className  = "hidden"
+    div_history_items.className = "hidden"
+    div_setup.className         = ""
+    div_main.className          = ""
 }

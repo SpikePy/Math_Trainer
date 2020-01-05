@@ -16,7 +16,7 @@ h1 {
     margin: 0;
 }
 
-#logo {
+#img_logo {
   width: 4em;
   vertical-align: middle;
   padding: .5em;
@@ -30,7 +30,7 @@ key {
   border-radius: .3em;
 }
 
-#description {
+#div_description {
   margin:  .8em auto 3em;
   width: 28em;
   max-width: 95vw;
@@ -42,15 +42,15 @@ ol {
 
 true {
   color: green;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 false {
   color: red;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
-#setup {
+#div_setup {
   margin:  .8em auto 3em;
   width: 28em;
   max-width: 95vw;
@@ -61,38 +61,39 @@ div {
   text-align: center;
 }
 
-#setup input[type="range"] {
+#div_setup input[type="range"] {
     width: 9em;
+    vertical-align: middle;
 }
 
-#question {
+#td_question {
   display: inline-block;
   font-size: 2.5em;
   border-radius: .3em;
-  padding: .2em;
+  padding: 0;
   text-align: right;
   width: 6.3em;
 }
 
-#main input {
-  display: inline-block;
-  font-size: 2.5em;
-  border-radius: .3em;
-  border: 0;
-  padding: .2em;
-  /* margin: .5em auto; */
-  text-align: right;
-  background-color: rgb(240, 240, 240);
-  -moz-appearance: textfield;
-  transition: background-color .5s ease;
-  width: 2em;
+#div_main div, #div_main input {
+    font-size: 2.5em;
 }
 
-#result {
-  color: black;
+#answer {
+  border: 0;
+  padding-right: .1em;
+  text-align: right;
+  width: 1.8em;
+  background-color: rgb(240, 240, 240);
+  -moz-appearance: textfield;
 }
-#result:hover {
-    background-color: rgb(240, 240, 240);
+
+#div_history_items {
+    font-size: 2em;
+}
+
+.hidden {
+  display: none;
 }
 
 table {
@@ -101,11 +102,68 @@ table {
 }
 
 td {
-    padding: .2em;
     text-align:right;
-    min-width: 2.6em;
+    vertical-align: middle;
+    padding: 0;
 }
 
-input[type="range"] {
+.probability {
+    min-width: 2.8em;
+}
+
+input {
   vertical-align: middle;
+  padding: 0;
+}
+
+button {
+  margin: 3em;
+  padding: 1em;
+}
+
+.answer-true-1 {
+    animation-name: answer-true-1;
+    animation-duration: 500ms;
+}
+.answer-true-2 {
+    animation-name: answer-true-2;
+    animation-duration: 500ms;
+}
+.answer-false-1 {
+    animation-name: answer-false-1;
+    animation-duration: 500ms;
+}
+.answer-false-2 {
+    animation-name: answer-false-2;
+    animation-duration: 500ms;
+}
+
+@keyframes answer-true-1 {
+    0% {box-shadow: 0 0}
+   40% {box-shadow: 0 0 3px #0F0}
+   40% {box-shadow: 0 0 7px #0F0}
+   60% {box-shadow: 0 0 3px #0F0}
+  100% {box-shadow: 0 0}
+}
+@keyframes answer-true-2 {
+    0% {box-shadow: 0 0}
+   40% {box-shadow: 0 0 3px #0F0}
+   40% {box-shadow: 0 0 7px #0F0}
+   60% {box-shadow: 0 0 3px #0F0}
+  100% {box-shadow: 0 0}
+}
+
+@keyframes answer-false-1 {
+    0% {box-shadow: 0 0}
+   40% {box-shadow: 0 0 3px #F00}
+   40% {box-shadow: 0 0 7px #F00}
+   60% {box-shadow: 0 0 3px #F00}
+  100% {box-shadow: 0 0}
+}
+@keyframes answer-false-2 {
+    0% {box-shadow: 0 0}
+   40% {box-shadow: 0 0 3px #F00}
+   40% {box-shadow: 0 0 7px #F00}
+   60% {box-shadow: 0 0 3px #F00}
+  100% {box-shadow: 0 0}
 }

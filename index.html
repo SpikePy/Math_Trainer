@@ -10,8 +10,8 @@
 </head>
 <body ondragstart="return false" ondrop="return false" onload="generateQuestion()">
     <h1>Math Trainer</h1>
-    <img id="logo" src="favicon.svg">
-    <div id="description">
+    <img id="img_logo" src="favicon.svg">
+    <div id="div_description">
         <p>This page is created to train your math skills (digit sum, multiplication table, small and big squared numbers/roots).</p>
         <h2>How to use this page</h2>
         <ol>
@@ -20,11 +20,11 @@
             <li>Press <key>Enter</key>, <key>Shift</key> or <key>Ctrl</key> to check your answer</li>
             <ol type="a">
                 <li>If <true>correct</true> the next question appears</li>
-                <li>If <false>wrong</false> the input is outlined red&mdash;hover the question to see the correct answer</li>
+                <li>If <false>wrong</false> hover the question to reveal the answer</li>
             </ol>
         </ol>
     </div>
-    <div id="setup">
+    <div id="div_setup">
         <table>
           <tr>
               <th colspan="3">Choose question type distribution</th>
@@ -37,26 +37,32 @@
           <tr>
               <td>Multiplication Table</td>
               <td><input id="input_multiplicationTable" type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
-              <td id="probability_multiplicationTable_td"></td>
+              <td id="probability_multiplicationTable_td" class="propability"></td>
           </tr>
           <tr>
               <td>Small Numbers Square/Root</td>
               <td><input id="input_squaredNumbersSmall" type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
-              <td id="propability_squaredNumbersSmall_td"></td>
+              <td id="propability_squaredNumbersSmall_td" class="propability"></td>
           </tr>
           <tr>
             <td>Big Numbers Square/Root</td>
-            <td><input id="input_squaredNumbersBig"   type="range"  min="0" max="4" step="1" oninput="generateQuestion()"></td>
-            <td id="propability_squaredNumbersBig_td"></td>
+            <td><input id="input_squaredNumbersBig" type="range" min="0" max="4" step="1" oninput="generateQuestion()"></td>
+            <td id="propability_squaredNumbersBig_td" class="propability"></td>
           </tr>
         </table>
     </div>
-    <div id="main">
-        <div id="question" size="15"> </div>
-        <input id="answer"   size="5"  autocomplete="off" type="number" autofocus="autofocus" onkeyup="check()">
+    <div id="div_main">
+      <table>
+        <tr>
+          <td id="td_question"></td>
+          <td><input id="answer" size="5"  autocomplete="off" type="number" autofocus="autofocus" onkeyup="check()"></td>
+        </tr>
+      </table>
     </div>
     <div id="history">
-      <p id="history_insert"></p>
+        <button id="btn_history_show"                 onclick="history_show()">Show History</button>
+        <button id="btn_history_hide"  class="hidden" onclick="history_hide()">Hide History</button>
+        <ol    id="div_history_items" class="hidden" reversed></ol>
     </div>
 </body>
 </html>
