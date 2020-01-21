@@ -1,9 +1,33 @@
 // GLOBAL VARIABLES
-question_answer    = 0
-answer_false_count = 0
-answer_true_count  = 0
+var question_answer    = 0
+var answer_false_count = 0
+var answer_true_count  = 0
 
 function generateQuestion() {
+    switch (navigator.language) {
+        case "de":
+            document.getElementsByTagName('h1')[0].innerHTML                           = '<img id="img_logo" src="favicon.svg">Mathe Trainer'
+            document.getElementById('p-description').innerText                         = 'Diese Webseite wurde erstellt um deine MAthe-Fähigkeiten zu trainieren (Quersumme, Einmaleins, kleine und große Quadratzahlen/Wurzeln).'
+
+            document.querySelector('#div_description h2').innerHTML                    = 'Anleitung'
+            document.querySelector('#div_description li:nth-child(1)').innerHTML       = 'Nutze die folgenden Schieberegler um die Aufgaben-Mix bestimmen'
+            document.querySelector('#div_description li:nth-child(2)').innerHTML       = 'Geb deine Antwort in das Eingabefeld ein'
+            document.querySelector('#div_description li:nth-child(3)').innerHTML       = 'Bestätige deine Eingabe mit <keyboard-key>Enter</keyboard-key>, <keyboard-key>Shift</keyboard-key> oder <keyboard-key>Strg</keyboard-key>'
+            document.querySelector('#div_description ol ol li:nth-child(1)').innerHTML = 'Wenn deine Eingabe <true>korrekt</true> ist, erscheint eine neue Aufgabe'
+            document.querySelector('#div_description ol ol li:nth-child(2)').innerHTML = 'Wenn deine Eingabe <false>falsch</false> ist, versuche es erneut'
+
+
+            document.querySelector('#div_setup h2').innerHTML                              = 'Aufgaben-Mix'
+
+            document.querySelector('#div_setup tr:nth-child(1) td:nth-child(1)').innerHTML = 'Quersumme'
+            document.querySelector('#div_setup tr:nth-child(2) td:nth-child(1)').innerHTML = 'Einmaleins'
+            document.querySelector('#div_setup tr:nth-child(3) td:nth-child(1)').innerHTML = 'Kleine Quadratzahlen/Wurzeln'
+            document.querySelector('#div_setup tr:nth-child(4) td:nth-child(1)').innerHTML = 'Große Quadratzahlen/Wurzeln'
+
+            document.querySelector('#div_main h2').innerHTML = 'Aufgabe'
+            break;
+    }
+
     // Parse slider values from HTML part (strings) to int
     input_digitSum_int            = parseInt(input_digitSum.value  , 10)
     input_multiplicationTable_int = parseInt(input_multiplicationTable.value, 10)
