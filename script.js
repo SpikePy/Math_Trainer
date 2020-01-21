@@ -6,8 +6,8 @@ var answer_true_count  = 0
 function generateQuestion() {
     switch (navigator.language) {
         case "de":
-            document.getElementsByTagName('h1')[0].innerHTML                           = '<img id="img_logo" src="favicon.svg">Mathe Trainer'
-            document.getElementById('p-description').innerText                         = 'Diese Webseite wurde erstellt um deine MAthe-Fähigkeiten zu trainieren (Quersumme, Einmaleins, kleine und große Quadratzahlen/Wurzeln).'
+            document.getElementsByTagName('h1')[0].innerHTML   = '<img id="img_logo" src="favicon.svg">Mathe-Trainer'
+            document.getElementById('p-description').innerText = 'Diese Webseite wurde erstellt um deine MAthe-Fähigkeiten zu trainieren (Quersumme, Einmaleins, kleine und große Quadratzahlen/Wurzeln).'
 
             document.querySelector('#div_description h2').innerHTML                    = 'Anleitung'
             document.querySelector('#div_description li:nth-child(1)').innerHTML       = 'Nutze die folgenden Schieberegler um die Aufgaben-Mix bestimmen'
