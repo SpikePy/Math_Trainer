@@ -25,7 +25,7 @@ function generateQuestion() {
             document.querySelector('#div_setup tr:nth-child(4) td:nth-child(1)').innerHTML = 'Große Quadratzahlen/Wurzeln'
 
             document.querySelector('#div_main h2').innerHTML = 'Aufgabe'
-            break;
+            break
     }
 
     // Parse slider values from HTML part (strings) to int
@@ -64,65 +64,65 @@ function generateQuestion() {
 
     answer.value = ""
 
+
+    // Define Math problem types
+    //==========================================================================
+    function digitSum(min,max) {
+        number_1 = min + Math.round( Math.random() * (max-min) )
+        td_question.innerHTML  = `<math><msub><mi>s</mi><mi>d</mi></msub><mo>(</mo><mn>${number_1}<mo>)</mo></mn><mo>=</mo></math>`
+        question_answer = number_1.toString().split('').map(Number).reduce((sum, el) => sum + el)
+    }
+
+    function multiplicationTable(min,max) {
+        number_1 = min + Math.round( Math.random() * (max-min) )
+        number_2 = min + Math.round( Math.random() * (max-min) )
+        td_question.innerHTML  = `<math><mn>${number_1}</mn><mo>*</mo><mn>${number_2}</mn><mo>=</mo></math>`
+        question_answer = number_1 * number_2
+    }
+
+    function squaredNumbers(min,max) {
+        number_1 = min + Math.round( Math.random() * (max-min) )
+
+        if (Math.random() < 0.5) {
+          td_question.innerHTML = `<math><msup><mn>${number_1}</mn><mn>2</mn></msup><mo>=</mo></math>`
+          question_answer = number_1 ** 2
+        }
+        else {
+          td_question.innerHTML = `<math><msqrt><mn>${number_1 ** 2}</mn></msqrt><mo>=</mo></math>`
+          question_answer = number_1
+        }
+    }
+
+
+    // Decide which math problem should be solved
+    //==========================================================================
     questionType_random = Math.random()
     switch (true) {
         // If random number implies _digit sum_
         case questionType_random < probability_digitSum:
-            min = 0
-            max = 9999
-            number_1 = min + Math.round( Math.random() * (max-min) )
-            td_question.innerHTML  = `<math><msub><mi>s</mi><mi>d</mi></msub><mo>(</mo><mn>${number_1}<mo>)</mo></mn><mo>=</mo></math>`
-            question_answer = number_1.toString().split('').map(Number).reduce((sum, el) => sum + el)
-            break;
+            digitSum(0,9999)
+            break
 
         // If random number implies _multiplication table_
         case questionType_random < probability_digitSum
                                  + probability_multiplicationTable:
-            min = 0
-            max = 10
-            number_1 = min + Math.round( Math.random() * (max-min) )
-            number_2 = min + Math.round( Math.random() * (max-min) )
-            td_question.innerHTML  = `<math><mn>${number_1}</mn><mo>*</mo><mn>${number_2}</mn><mo>=</mo></math>`
-            question_answer = number_1 * number_2
-            break;
+            multiplicationTable(0,10)
+            break
 
         // If random number implies _small squared numbers_
         case questionType_random < probability_digitSum
                                  + probability_multiplicationTable
                                  + probability_squaredNumbersSmall:
-
-            min = 0
-            max = 10
-            number_1 = min + Math.round( Math.random() * (max-min) )
-
-            if (Math.random() < 0.5) {
-              td_question.innerHTML = `<math><msup><mn>${number_1}</mn><mn>2</mn></msup><mo>=</mo></math>`
-              question_answer = number_1 ** 2
-            }
-            else {
-              td_question.innerHTML = `<math><msqrt><mn>${number_1 ** 2}</mn></msqrt><mo>=</mo></math>`
-              question_answer = number_1
-            }
-            break;
+            squaredNumbers(0,10)
+            break
 
         // If random number implies _big squared numbers_
         case questionType_random < probability_digitSum
                                  + probability_multiplicationTable
                                  + probability_squaredNumbersSmall
                                  + probability_squaredNumbersBig:
-            min = 10
-            max = 20
-            number_1 = min + Math.round( Math.random() * (max-min) )
-
-            if (Math.random() < 0.5) {
-              td_question.innerHTML = `<math><msup><mn>${number_1}</mn><mn>2</mn></msup><mo>=</mo></math>`
-              question_answer = number_1 ** 2
-            }
-            else {
-              td_question.innerHTML = `<math><msqrt><mn>${number_1 ** 2}</mn></msqrt><mo>=</mo></math>`
-              question_answer = number_1
-            }
-            break;
+            squaredNumbers(10,20)
+            break
 
         default:
             alert("Something went wrong: random-question-type was outside of question-range");
